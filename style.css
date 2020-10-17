@@ -1,0 +1,349 @@
+@import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300;400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("./bg.jpg");
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: "Sansita Swashed", sans-serif;
+  margin: 0;
+  color: orange;
+}
+
+.main__hero {
+  font-size: 4rem;
+  margin-bottom: 3rem;
+}
+header {
+  height: 3rem;
+  margin-left: 2rem;
+}
+h2 {
+  font-weight: normal;
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+
+.timer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.big-text {
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: 1;
+  margin: 1rem 1rem;
+  color: rgb(238, 255, 0);
+}
+
+.timer-el {
+  text-align: center;
+  border: 1px solid white;
+  margin: 0.2rem;
+  padding: 0.2rem 0.2rem 0.5rem 0.2rem;
+}
+
+.timer-el span {
+  font-size: 1.2rem;
+  color: rgb(202, 108, 0);
+}
+
+label {
+  font-size: 1.5rem;
+}
+
+input,
+label,
+button {
+  margin: 0.3rem;
+}
+
+button,
+input {
+  background-color: white;
+  color: rgb(202, 108, 0);
+  font-size: 1.5rem;
+  font-family: "Sansita Swashed", sans-serif;
+}
+button {
+  width: 8rem;
+}
+input:hover,
+button:hover {
+  background-color: rgb(143, 0, 0);
+  color: white;
+}
+/***********************/
+.main_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+.subc {
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+.subc:hover {
+  background-color: rgba(3, 65, 180, 0.342);
+}
+
+.subcontainer00 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.subcontainer000 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.subcontainer0:hover {
+  background-color: rgba(255, 255, 255, 0);
+}
+/* .subcontainer1 {
+}
+.subcontainer2 {
+}
+.subcontainer3 {
+}
+.subcontainer4 {
+} */
+/***********************/
+footer {
+  /**/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p {
+  border-top: 2px solid goldenrod;
+  padding: 0.5rem 5rem;
+}
+/***********************/
+.c0_bar {
+  /*list-style: none;*/
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  /*background-color: antiquewhite;*/
+  font-size: 3.5vmax;
+  margin: 0;
+  padding: 0;
+  border-radius: 8px 8px 0 0;
+  color: white;
+}
+.link:hover {
+  cursor: pointer;
+}
+.active_tab {
+  background-color: #009da8a9;
+  border: 4px solid orange;
+  color: orange;
+}
+.active_div {
+  background-color: #009da8a9;
+}
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+#sw_tab {
+  border-bottom: none;
+  grid-area: 1 / 1 / 2 / 2;
+  border-radius: 8px 0 0 0;
+}
+#cd_tab {
+  /* border-left: 4px solid orange;*/
+  border-bottom: 4px solid orange;
+  border-radius: 0 8px 0 0;
+  grid-area: 1 / 2 / 2 / 3;
+}
+#sw_div {
+  /*padding: 3vw 2vw 0 2vw;*/
+  padding: 3vmax 2vmax 0 2vmax;
+  display: block;
+  border: 4px solid orange;
+  border-radius: 0 0 8px 8px;
+  border-top: none;
+}
+#cd_div {
+  padding: 3vw 2vw 0 2vw;
+  display: none;
+  border: 4px solid orange;
+  border-radius: 0 0 8px 8px;
+  border-top: none;
+}
+/***********/
+.cd_keypad {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 5px;
+  padding: 2vmax 2vmax;
+}
+
+#btn_0 {
+  grid-area: 2 / 1 / 3 / 2;
+}
+#btn_1 {
+  grid-area: 2 / 2 / 3 / 3;
+}
+#btn_2 {
+  grid-area: 2 / 3 / 3 / 4;
+}
+#btn_3 {
+  grid-area: 2 / 4 / 3 / 5;
+}
+#btn_4 {
+  grid-area: 2 / 5 / 3 / 6;
+}
+#btn_5 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+#btn_6 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+#btn_7 {
+  grid-area: 1 / 3 / 2 / 4;
+}
+#btn_8 {
+  grid-area: 1 / 4 / 2 / 5;
+}
+#btn_9 {
+  grid-area: 1 / 5 / 2 / 6;
+}
+#btn_set {
+  grid-area: 1 / 6 / 2 / 8;
+}
+#btn_clear {
+  grid-area: 2 / 6 / 3 / 8;
+  background-color: #7c0000;
+}
+.cd_cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: green;
+  border: 3px solid black;
+  color: white;
+  border-radius: 10px;
+  font-size: 3vmax;
+}
+.cd_cell:hover {
+  border-color: yellow;
+}
+/***********************/
+.back-btn {
+  background-color: #7c0000;
+  color: white;
+  border: 5px solid black;
+  border-radius: 15px;
+  margin-right: 10px;
+}
+.back-btn:hover {
+  border-color: yellow;
+}
+/***********************/
+.stopwatch,
+.countdown {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 5vmax;
+  border: 5px solid black;
+  border-radius: 15px;
+  background-color: rgba(176, 0, 230, 0.493);
+  /*padding: 0 40px 40px 20px;*/
+  /*padding: 1vmax 1.5vmax 3vmax 1.5vmax;
+  margin: 1vmax;*/
+}
+
+.timer-text {
+  font-size: 6vmax;
+  font-weight: bold;
+  line-height: 1;
+  margin: 1vmax 1vmax;
+  color: rgb(238, 255, 0);
+}
+
+.sw-btns,
+.cd-btns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.cd-btns {
+  display: none;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+#stopwatch_milliseconds,
+#cd_milliseconds {
+  font-size: 2vmax;
+  margin-left: 27vmax;
+  margin-top: -0.8vmax;
+}
+.ctrl-btn {
+  font-size: 3.5vmax;
+  width: 4.5em;
+  margin: 0.3em 0.1em;
+  padding: 0.1em;
+}
+.clear-btn {
+  background-color: #7c0000;
+  color: white;
+  border: 5px solid black;
+  border-radius: 15px;
+}
+.start-btn {
+  background-color: green;
+  color: white;
+  border: 5px solid black;
+  border-radius: 15px;
+}
+.ctrl-btn:hover {
+  border-color: yellow;
+}
+/****************************/
+.fullscreen_link {
+  font-size: 1.5vmax;
+
+  margin: 1vmax;
+  /***/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fullscreen_link a:link {
+  color: orange;
+}
+.fullscreen_link a:visited {
+  color: yellow;
+}
+.fullscreen_link a:hover {
+  color: white;
+}
+/****************************/

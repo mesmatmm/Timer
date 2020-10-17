@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch Full Screen</title>
+
+    <link rel="stylesheet" href="fullscreen.css" />
+    <!--
+
+        <link rel="stylesheet" href="fullscreen_responsive.css" />
+    -->
+    <script src="stopwatch_countdown.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <header class="main__hero">
+            <a class="site_name" href="index.html">Timer</a>
+        </header>
+
+        <div class="subc subcontainer0">
+            <div class="c0_bar">
+                <div class="link active_tab" id="sw_tab">
+                    Stopwatch
+                </div>
+                <div class="link" id="cd_tab">
+                    Countdown
+                </div>
+            </div>
+            <div id="sw_div" class="active_div">
+                <div class="stopwatch">
+                    <div class="sw_p1">
+                        <span class="timer-text" id="stopwatch_hours">00</span>
+                        <span>:</span>
+                        <span class="timer-text" id="stopwatch_minutes">00</span>
+                        <span>:</span>
+                        <span class="timer-text" id="stopwatch_seconds">00</span>
+                    </div>
+                    <span id="stopwatch_milliseconds">000</span>
+                </div>
+
+                <div class="sw-btns">
+                    <button class="ctrl-btn start-btn" id="start_sw" type="submit">Start</button>
+                    <button class="ctrl-btn clear-btn" id="clear_sw" type="submit">Clear</button>
+                </div>
+            </div>
+            <div id="cd_div">
+                <div class="countdown">
+                    <div class="cd_p1">
+                        <span class="timer-text" id="cd_hours">00</span>
+                        <span>:</span>
+                        <span class="timer-text" id="cd_minutes">00</span>
+                        <span>:</span>
+                        <span class="timer-text" id="cd_seconds">00</span>
+                    </div>
+                    <span id="cd_milliseconds">000</span>
+                </div>
+                <div class="cd_keypad">
+                    <span id="btn_0" class="cd_cell">0</span>
+                    <span id="btn_1" class="cd_cell">1</span>
+                    <span id="btn_2" class="cd_cell">2</span>
+                    <span id="btn_3" class="cd_cell">3</span>
+                    <span id="btn_4" class="cd_cell">4</span>
+                    <span id="btn_5" class="cd_cell">5</span>
+                    <span id="btn_6" class="cd_cell">6</span>
+                    <span id="btn_7" class="cd_cell">7</span>
+                    <span id="btn_8" class="cd_cell">8</span>
+                    <span id="btn_9" class="cd_cell">9</span>
+                    <span id="btn_set" class="cd_cell">Set</span>
+                    <span id="btn_clear" class="cd_cell">Clear</span>
+                </div>
+                <div class="cd-btns">
+                    <div>
+                        <button class="ctrl-btn start-btn" id="start_cd" type="submit">Start</button>
+                        <button class="ctrl-btn clear-btn" id="clear_cd" type="submit">Clear</button>
+                    </div>
+                    <div>
+                        <button class="back-btn" id="back_cd" type="submit">&#8678 Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>
+            Designed by &copy Mahmoud Esmat | &reg; MEM
+        </p>
+    </footer>
+
+    <!--
+        /***************/
+    -->
+
+</body>
+
+</html>
