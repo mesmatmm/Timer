@@ -32,7 +32,7 @@ const e_months = document.getElementById("e_months");
 const e_years = document.getElementById("e_years");
 
 const nextBirthday = "31 Aug 2021";
-const myBirthday = "31 Aug 1991";
+const myBirthday = "06 Oct 1973";
 
 //calculate the remaining time util the given date
 function remainingTime(date) {
