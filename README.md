@@ -1,6 +1,6 @@
 # Timer App - HTML & CSS & JavaScript
 
-- <strong>The project link on Github Pages:</strong> https://github.com/mem000/weather-journal-app-fwd
+- <strong>The project link on Github Pages:</strong> https://mem000.github.io/Timer/
 
 * Providing the mostly used timing services in a simple, fast format.
 * This app is developed using only HTML, CSS, and JavaScrip without any external libraries or frameworks.
