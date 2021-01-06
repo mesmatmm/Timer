@@ -104,13 +104,21 @@ function elapsedTime_b(birthday) {
     const seconds = Math.floor(totalSeconds) % 60;
     const mins = Math.floor(totalSeconds / 60) % 60;
     const hours = Math.floor(totalSeconds / 3600) % 24;
-    const days = Math.abs(currentDate.getDate() - oldDate.getDate());
+    let day_s = currentDate.getDate() - oldDate.getDate();
+    let days;
+    if (day_s >= 0)
+        days = day_s;
+    else
+        days = 30 + day_s;
+
     let years = currentDate.getFullYear() - oldDate.getFullYear();
     let totalMonths = (years * 12) + (currentDate.getMonth() - oldDate.getMonth());
-    if (totalMonths < 12) {
-        years = 0;
+    if (day_s < 0) {
+        totalMonths -= 1;
     }
-    const months = totalMonths % 12;
+    let months = totalMonths % 12;
+    years = Math.floor(totalMonths / 12);
+
 
 
     seconds_b.innerHTML = formatTime(seconds);
