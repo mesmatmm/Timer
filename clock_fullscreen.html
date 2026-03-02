@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>World Clock – Timer</title>
+  <link rel="stylesheet" href="css/clock_fullscreen.css" />
+</head>
+
+<body>
+
+  <header class="top-bar">
+    <a class="back-link" href="index.html">&#8592; Timer</a>
+    <span class="page-title">World Clock</span>
+  </header>
+
+  <main>
+
+    <!-- ===== LOCAL TIME HERO ===== -->
+    <section class="hero-clock" aria-label="Current local time">
+      <div class="hero-time" id="hero-time">--:--:--</div>
+      <div class="hero-ampm" id="hero-ampm">--</div>
+      <div class="hero-date" id="hero-date">--- · --- --, ----</div>
+    </section>
+
+    <!-- ===== WORLD CAPITALS GRID ===== -->
+    <section class="world-grid" aria-label="World capitals clocks">
+
+      <div class="city-card" data-tz="Africa/Cairo">
+        <div class="city-flag">🇪🇬</div>
+        <div class="city-name">Cairo</div>
+        <div class="city-country">Egypt</div>
+        <div class="city-time" id="tz-Cairo">--:--:--</div>
+        <div class="city-date" id="dt-Cairo">---</div>
+        <div class="city-offset" id="off-Cairo"></div>
+      </div>
+
+      <div class="city-card" data-tz="Asia/Riyadh">
+        <div class="city-flag">🇸🇦</div>
+        <div class="city-name">Riyadh</div>
+        <div class="city-country">Saudi Arabia</div>
+        <div class="city-time" id="tz-Riyadh">--:--:--</div>
+        <div class="city-date" id="dt-Riyadh">---</div>
+        <div class="city-offset" id="off-Riyadh"></div>
+      </div>
+
+      <div class="city-card" data-tz="America/Toronto">
+        <div class="city-flag">🇨🇦</div>
+        <div class="city-name">Ottawa</div>
+        <div class="city-country">Canada</div>
+        <div class="city-time" id="tz-Ottawa">--:--:--</div>
+        <div class="city-date" id="dt-Ottawa">---</div>
+        <div class="city-offset" id="off-Ottawa"></div>
+      </div>
+
+      <div class="city-card" data-tz="Africa/Tunis">
+        <div class="city-flag">🇹🇳</div>
+        <div class="city-name">Tunis</div>
+        <div class="city-country">Tunisia</div>
+        <div class="city-time" id="tz-Tunis">--:--:--</div>
+        <div class="city-date" id="dt-Tunis">---</div>
+        <div class="city-offset" id="off-Tunis"></div>
+      </div>
+
+      <div class="city-card" data-tz="Africa/Casablanca">
+        <div class="city-flag">🇲🇦</div>
+        <div class="city-name">Rabat</div>
+        <div class="city-country">Morocco</div>
+        <div class="city-time" id="tz-Rabat">--:--:--</div>
+        <div class="city-date" id="dt-Rabat">---</div>
+        <div class="city-offset" id="off-Rabat"></div>
+      </div>
+
+      <div class="city-card" data-tz="America/New_York">
+        <div class="city-flag">🇺🇸</div>
+        <div class="city-name">Washington D.C.</div>
+        <div class="city-country">USA</div>
+        <div class="city-time" id="tz-Washington">--:--:--</div>
+        <div class="city-date" id="dt-Washington">---</div>
+        <div class="city-offset" id="off-Washington"></div>
+      </div>
+
+      <div class="city-card" data-tz="Europe/London">
+        <div class="city-flag">🇬🇧</div>
+        <div class="city-name">London</div>
+        <div class="city-country">England</div>
+        <div class="city-time" id="tz-London">--:--:--</div>
+        <div class="city-date" id="dt-London">---</div>
+        <div class="city-offset" id="off-London"></div>
+      </div>
+
+      <div class="city-card" data-tz="Europe/Paris">
+        <div class="city-flag">🇫🇷</div>
+        <div class="city-name">Paris</div>
+        <div class="city-country">France</div>
+        <div class="city-time" id="tz-Paris">--:--:--</div>
+        <div class="city-date" id="dt-Paris">---</div>
+        <div class="city-offset" id="off-Paris"></div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>Designed by &copy; Mahmoud Esmat | &reg; MEM</p>
+  </footer>
+
+  <script src="js/clock_fullscreen.js" defer></script>
+</body>
+</html>

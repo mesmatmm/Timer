@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Sansita+Swashed:wght@400;600&display=swap");
+
+/* =====================
+   Variables
+   ===================== */
+:root {
+  --orange: #ff8c00;
+  --orange-dim: rgba(255, 140, 0, 0.6);
+  --orange-glow: rgba(255, 140, 0, 0.25);
+  --bg: #0a0a0a;
+  --card-bg: rgba(20, 10, 0, 0.85);
+  --card-border: rgba(255, 140, 0, 0.3);
+  --card-hover: rgba(255, 140, 0, 0.08);
+  --text-dim: rgba(255, 140, 0, 0.5);
+  --font-digital: 'Orbitron', monospace;
+  --font-ui: 'Sansita Swashed', sans-serif;
+}
+
+/* =====================
+   Reset & Base
+   ===================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse at 20% 20%, rgba(255, 100, 0, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(255, 60, 0, 0.04) 0%, transparent 60%);
+  min-height: 100vh;
+  font-family: var(--font-ui);
+  color: var(--orange);
+  display: flex;
+  flex-direction: column;
+}
+
+/* =====================
+   Top Bar
+   ===================== */
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--card-border);
+  background: rgba(0,0,0,0.4);
+}
+
+.back-link {
+  color: var(--orange-dim);
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+.back-link:hover { color: var(--orange); }
+
+.page-title {
+  font-family: var(--font-digital);
+  font-size: 1rem;
+  letter-spacing: 0.3em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+/* =====================
+   Main
+   ===================== */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.5rem 3rem;
+  gap: 3rem;
+}
+
+/* =====================
+   Hero Clock
+   ===================== */
+.hero-clock {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 2rem 3rem;
+  border-bottom: 1px solid var(--card-border);
+  width: 100%;
+  max-width: 900px;
+}
+
+.hero-time {
+  font-family: var(--font-digital);
+  font-size: clamp(4rem, 12vw, 9rem);
+  font-weight: 900;
+  color: var(--orange);
+  letter-spacing: 0.05em;
+  text-shadow:
+    0 0 20px var(--orange-glow),
+    0 0 60px rgba(255, 100, 0, 0.15);
+  line-height: 1;
+}
+
+.hero-ampm {
+  font-family: var(--font-digital);
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--orange-dim);
+  letter-spacing: 0.2em;
+  margin-top: -0.5rem;
+}
+
+.hero-date {
+  font-family: var(--font-digital);
+  font-size: clamp(0.9rem, 2.5vw, 1.5rem);
+  font-weight: 400;
+  color: var(--orange-dim);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
+
+/* =====================
+   World Grid
+   ===================== */
+.world-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* =====================
+   City Card
+   ===================== */
+.city-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 1.2rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.25s ease, border-color 0.25s ease;
+  cursor: default;
+}
+
+.city-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,140,0,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.city-card:hover {
+  background: var(--card-hover);
+  border-color: var(--orange-dim);
+}
+
+.city-flag {
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.city-name {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--orange);
+  text-align: center;
+}
+
+.city-country {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-align: center;
+  margin-bottom: 0.6rem;
+}
+
+.city-time {
+  font-family: var(--font-digital);
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: var(--orange);
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 12px var(--orange-glow);
+  text-align: center;
+}
+
+.city-date {
+  font-family: var(--font-digital);
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 0.1rem;
+}
+
+.city-offset {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  text-align: center;
+  margin-top: 0.4rem;
+  font-family: var(--font-digital);
+  letter-spacing: 0.05em;
+}
+
+/* =====================
+   Footer
+   ===================== */
+footer {
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid var(--card-border);
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+/* =====================
+   Responsive
+   ===================== */
+@media (max-width: 900px) {
+  .world-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .world-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+
+  .city-card {
+    padding: 0.8rem 0.5rem;
+  }
+
+  .city-flag {
+    font-size: 1.5rem;
+  }
+
+  .city-time {
+    font-size: 1.1rem;
+  }
+
+  .hero-clock {
+    padding: 1.2rem 1rem;
+  }
+}

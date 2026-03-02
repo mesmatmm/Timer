@@ -1,6 +1,7 @@
 /**
  * tabs.js
  * Handles tab switching between Stopwatch and Countdown panels.
+ * Uses hidden attribute (not just class) so the inactive panel takes zero space.
  * Uses aria attributes for accessibility.
  */
 
@@ -26,7 +27,7 @@
     inactiveTab.setAttribute('aria-selected', 'false');
     inactiveTab.setAttribute('tabindex', '-1');
 
-    // Panel visibility
+    // Panel visibility — use hidden attribute so inactive panel collapses fully
     activePanel.classList.add('active_div');
     activePanel.removeAttribute('hidden');
 
