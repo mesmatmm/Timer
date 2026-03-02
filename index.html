@@ -28,60 +28,65 @@
             </div>
           </div>
 
-          <!-- Stopwatch Panel -->
-          <div id="sw_div" class="active_div" role="tabpanel" aria-labelledby="sw_tab">
-            <div class="stopwatch" aria-label="Stopwatch display">
-              <div class="sw_p1">
-                <span class="timer-text" id="stopwatch_hours">00</span>
-                <span class="separator">:</span>
-                <span class="timer-text" id="stopwatch_minutes">00</span>
-                <span class="separator">:</span>
-                <span class="timer-text" id="stopwatch_seconds">00</span>
-              </div>
-              <span id="stopwatch_milliseconds" aria-live="off">000</span>
-            </div>
-            <div class="sw-btns">
-              <button class="ctrl-btn start-btn" id="start_sw" aria-label="Start stopwatch">Start</button>
-              <button class="ctrl-btn clear-btn" id="clear_sw" aria-label="Clear stopwatch">Clear</button>
-            </div>
-          </div>
+          <!-- Tab Panels Wrapper (shared border) -->
+          <div class="tab-panels-wrapper">
 
-          <!-- Countdown Panel -->
-          <div id="cd_div" role="tabpanel" aria-labelledby="cd_tab" hidden>
-            <div class="countdown" id="countdown_display" aria-label="Countdown display">
-              <div class="cd_p1">
-                <span class="timer-text" id="cd_hours">00</span>
-                <span class="separator">:</span>
-                <span class="timer-text" id="cd_minutes">00</span>
-                <span class="separator">:</span>
-                <span class="timer-text" id="cd_seconds">00</span>
+            <!-- Stopwatch Panel -->
+            <div id="sw_div" class="tab-panel active_div" role="tabpanel" aria-labelledby="sw_tab">
+              <div class="stopwatch" aria-label="Stopwatch display">
+                <div class="sw_p1">
+                  <span class="timer-text" id="stopwatch_hours">00</span>
+                  <span class="separator">:</span>
+                  <span class="timer-text" id="stopwatch_minutes">00</span>
+                  <span class="separator">:</span>
+                  <span class="timer-text" id="stopwatch_seconds">00</span>
+                </div>
+                <span id="stopwatch_milliseconds" aria-live="off">000</span>
               </div>
-              <span id="cd_milliseconds" aria-live="off">000</span>
-            </div>
-            <div class="cd_keypad" role="group" aria-label="Countdown time entry keypad">
-              <span id="btn_5" class="cd_cell" role="button" tabindex="0" aria-label="5">5</span>
-              <span id="btn_6" class="cd_cell" role="button" tabindex="0" aria-label="6">6</span>
-              <span id="btn_7" class="cd_cell" role="button" tabindex="0" aria-label="7">7</span>
-              <span id="btn_8" class="cd_cell" role="button" tabindex="0" aria-label="8">8</span>
-              <span id="btn_9" class="cd_cell" role="button" tabindex="0" aria-label="9">9</span>
-              <span id="btn_set" class="cd_cell" role="button" tabindex="0" aria-label="Set time">Set</span>
-              <span id="btn_0" class="cd_cell" role="button" tabindex="0" aria-label="0">0</span>
-              <span id="btn_1" class="cd_cell" role="button" tabindex="0" aria-label="1">1</span>
-              <span id="btn_2" class="cd_cell" role="button" tabindex="0" aria-label="2">2</span>
-              <span id="btn_3" class="cd_cell" role="button" tabindex="0" aria-label="3">3</span>
-              <span id="btn_4" class="cd_cell" role="button" tabindex="0" aria-label="4">4</span>
-              <span id="btn_clear" class="cd_cell" role="button" tabindex="0" aria-label="Clear entry">Clear</span>
-            </div>
-            <div class="cd-btns">
-              <div>
-                <button class="ctrl-btn start-btn" id="start_cd" aria-label="Start countdown">Start</button>
-                <button class="ctrl-btn clear-btn" id="clear_cd" aria-label="Reset countdown">Clear</button>
-              </div>
-              <div>
-                <button class="back-btn" id="back_cd" aria-label="Go back to keypad">&#8678; Back</button>
+              <div class="sw-btns">
+                <button class="ctrl-btn start-btn" id="start_sw" aria-label="Start stopwatch">Start</button>
+                <button class="ctrl-btn clear-btn" id="clear_sw" aria-label="Clear stopwatch">Clear</button>
               </div>
             </div>
-          </div>
+
+            <!-- Countdown Panel -->
+            <div id="cd_div" class="tab-panel" role="tabpanel" aria-labelledby="cd_tab" hidden>
+              <div class="countdown" id="countdown_display" aria-label="Countdown display">
+                <div class="cd_p1">
+                  <span class="timer-text" id="cd_hours">00</span>
+                  <span class="separator">:</span>
+                  <span class="timer-text" id="cd_minutes">00</span>
+                  <span class="separator">:</span>
+                  <span class="timer-text" id="cd_seconds">00</span>
+                </div>
+                <span id="cd_milliseconds" aria-live="off">000</span>
+              </div>
+              <div class="cd_keypad" role="group" aria-label="Countdown time entry keypad">
+                <span id="btn_5" class="cd_cell" role="button" tabindex="0" aria-label="5">5</span>
+                <span id="btn_6" class="cd_cell" role="button" tabindex="0" aria-label="6">6</span>
+                <span id="btn_7" class="cd_cell" role="button" tabindex="0" aria-label="7">7</span>
+                <span id="btn_8" class="cd_cell" role="button" tabindex="0" aria-label="8">8</span>
+                <span id="btn_9" class="cd_cell" role="button" tabindex="0" aria-label="9">9</span>
+                <span id="btn_set" class="cd_cell" role="button" tabindex="0" aria-label="Set time">Set</span>
+                <span id="btn_0" class="cd_cell" role="button" tabindex="0" aria-label="0">0</span>
+                <span id="btn_1" class="cd_cell" role="button" tabindex="0" aria-label="1">1</span>
+                <span id="btn_2" class="cd_cell" role="button" tabindex="0" aria-label="2">2</span>
+                <span id="btn_3" class="cd_cell" role="button" tabindex="0" aria-label="3">3</span>
+                <span id="btn_4" class="cd_cell" role="button" tabindex="0" aria-label="4">4</span>
+                <span id="btn_clear" class="cd_cell" role="button" tabindex="0" aria-label="Clear entry">Clear</span>
+              </div>
+              <div class="cd-btns">
+                <div>
+                  <button class="ctrl-btn start-btn" id="start_cd" aria-label="Start countdown">Start</button>
+                  <button class="ctrl-btn clear-btn" id="clear_cd" aria-label="Reset countdown">Clear</button>
+                </div>
+                <div>
+                  <button class="back-btn" id="back_cd" aria-label="Go back to keypad">&#8678; Back</button>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /.tab-panels-wrapper -->
 
           <span class="fullscreen_link">
             <a href="stopwatch_fullScreen.html" aria-label="Open in full screen mode">&#x26F6; Full Screen</a>
