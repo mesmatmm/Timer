@@ -64,7 +64,7 @@ export default function App() {
   const isDark = theme === 'dark'
 
   return (
-    <div className={`min-h-screen ${isDark ? 'animated-gradient' : 'animated-gradient-light'}`}>
+    <div className={`min-h-screen ${isDark ? 'animated-gradient' : 'animated-gradient-light light-mode'}`}>
       <Navbar
         activeTab={activeTab}
         onTabChange={handleTabChange}

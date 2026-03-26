@@ -5,41 +5,14 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    box-sizing: border-box;
-  }
+  * { box-sizing: border-box; }
+  html { font-family: 'Inter', system-ui, sans-serif; scroll-behavior: smooth; }
+  body { margin: 0; padding: 0; min-height: 100vh; overflow-x: hidden; }
 
-  html {
-    font-family: 'Inter', system-ui, sans-serif;
-    scroll-behavior: smooth;
-  }
-
-  body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 3px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 3px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.35);
-  }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.35); }
 }
 
 @layer components {
@@ -48,56 +21,128 @@
   }
 }
 
-/* Animated gradient background */
+/* ── Dark mode animated background ── */
 .animated-gradient {
   background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1a1a2e, #16213e, #0f3460);
   background-size: 400% 400%;
   animation: gradient-shift 15s ease infinite;
 }
 
+/* ── Light mode animated background — rich indigo/violet/rose/emerald ── */
 .animated-gradient-light {
-  background: linear-gradient(-45deg, #e8eaf6, #c5cae9, #e3f2fd, #f3e5f5, #fce4ec, #e8eaf6);
+  background: linear-gradient(-45deg, #c7d2fe, #ddd6fe, #fbcfe8, #a7f3d0, #bfdbfe, #c7d2fe);
   background-size: 400% 400%;
   animation: gradient-shift 15s ease infinite;
 }
 
 @keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @keyframes flash {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.3;
-  }
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+.animate-flash { animation: flash 0.5s ease-in-out infinite; }
+
+/* ════════════════════════════════════════════════════════
+   LIGHT MODE OVERRIDES
+   All hardcoded text-white / bg-white/N / border-white/N
+   classes are re-mapped to dark-text / opaque-white variants
+   ════════════════════════════════════════════════════════ */
+
+/* ── Text ── */
+.light-mode .text-white          { color: #1e1b4b !important; }
+.light-mode .text-white\/10      { color: rgba(30,27,75,0.10) !important; }
+.light-mode .text-white\/20      { color: rgba(30,27,75,0.20) !important; }
+.light-mode .text-white\/30      { color: rgba(30,27,75,0.30) !important; }
+.light-mode .text-white\/40      { color: rgba(30,27,75,0.40) !important; }
+.light-mode .text-white\/50      { color: rgba(30,27,75,0.50) !important; }
+.light-mode .text-white\/60      { color: rgba(30,27,75,0.60) !important; }
+.light-mode .text-white\/70      { color: rgba(30,27,75,0.70) !important; }
+.light-mode .text-white\/80      { color: rgba(30,27,75,0.80) !important; }
+.light-mode .text-white\/90      { color: rgba(30,27,75,0.90) !important; }
+
+/* hover text overrides */
+.light-mode .hover\:text-white:hover { color: #1e1b4b !important; }
+
+/* ── Backgrounds ── */
+.light-mode .bg-white\/5         { background-color: rgba(255,255,255,0.55) !important; }
+.light-mode .bg-white\/10        { background-color: rgba(255,255,255,0.70) !important; }
+.light-mode .bg-white\/20        { background-color: rgba(255,255,255,0.82) !important; }
+.light-mode .bg-white\/30        { background-color: rgba(255,255,255,0.88) !important; }
+
+/* hover bg overrides */
+.light-mode .hover\:bg-white\/10:hover  { background-color: rgba(99,102,241,0.12) !important; }
+.light-mode .hover\:bg-white\/20:hover  { background-color: rgba(99,102,241,0.18) !important; }
+
+/* ── Borders ── */
+.light-mode .border-white\/10    { border-color: rgba(99,102,241,0.20) !important; }
+.light-mode .border-white\/20    { border-color: rgba(99,102,241,0.30) !important; }
+.light-mode .border-white\/30    { border-color: rgba(99,102,241,0.40) !important; }
+.light-mode .border-white\/40    { border-color: rgba(99,102,241,0.50) !important; }
+
+/* ── Navbar ── */
+.light-mode nav.fixed {
+  background-color: rgba(255,255,255,0.85) !important;
+  backdrop-filter: blur(16px) !important;
+  border-bottom-color: rgba(99,102,241,0.20) !important;
+  box-shadow: 0 1px 24px rgba(99,102,241,0.10);
 }
 
-.animate-flash {
-  animation: flash 0.5s ease-in-out infinite;
+/* Tab pill background */
+.light-mode .bg-white\/10.rounded-xl {
+  background-color: rgba(99,102,241,0.12) !important;
 }
 
-/* Light theme overrides */
+/* ── Glass card ── */
 .light-mode .glass-card {
-  @apply bg-black/5 border-black/10;
+  background-color: rgba(255,255,255,0.75) !important;
+  border-color: rgba(99,102,241,0.25) !important;
+  box-shadow: 0 4px 24px rgba(99,102,241,0.12);
 }
 
-/* Number input styling */
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
-  opacity: 0.3;
+/* ── Inputs (countdown/alarm time fields) ── */
+.light-mode input[type='number'],
+.light-mode input[type='time'] {
+  background-color: rgba(255,255,255,0.85) !important;
+  border-color: rgba(99,102,241,0.30) !important;
+  color: #1e1b4b !important;
 }
 
+/* ── Dashed "Add Timer" placeholder card ── */
+.light-mode .border-dashed {
+  border-color: rgba(99,102,241,0.35) !important;
+}
+.light-mode .border-dashed:hover {
+  border-color: rgba(99,102,241,0.60) !important;
+  background-color: rgba(99,102,241,0.08) !important;
+}
+
+/* ── Indigo-300 accent links (e.g. "Edit time") ── */
+.light-mode .text-indigo-300 { color: #4338ca !important; }
+.light-mode .hover\:text-indigo-200:hover { color: #3730a3 !important; }
+
+/* ── Scrollbar for light mode ── */
+.light-mode ::-webkit-scrollbar-track { background: rgba(99,102,241,0.05); }
+.light-mode ::-webkit-scrollbar-thumb { background: rgba(99,102,241,0.25); }
+.light-mode ::-webkit-scrollbar-thumb:hover { background: rgba(99,102,241,0.40); }
+
+/* ── time picker icon ── */
 input[type='time']::-webkit-calendar-picker-indicator {
   filter: invert(1) opacity(0.5);
   cursor: pointer;
+}
+.light-mode input[type='time']::-webkit-calendar-picker-indicator {
+  filter: none;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+/* ── number spinner ── */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  opacity: 0.3;
 }
