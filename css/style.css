@@ -42,12 +42,12 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse at 15% 25%, rgba(0, 157, 168, 0.22) 0%, transparent 45%),
-    radial-gradient(ellipse at 85% 75%, rgba(176, 0, 230, 0.18) 0%, transparent 45%),
-    radial-gradient(ellipse at 50% 50%, rgba(255, 140, 0, 0.10) 0%, transparent 55%);
+    radial-gradient(ellipse at 15% 25%, rgba(0, 157, 168, 0.28) 0%, transparent 45%),
+    radial-gradient(ellipse at 85% 75%, rgba(176, 0, 230, 0.22) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 50%, rgba(255, 140, 0, 0.12) 0%, transparent 55%);
   animation: bg-drift 12s ease-in-out infinite alternate;
 }
 
@@ -56,6 +56,11 @@ body::before {
   33%  { transform: translate(3%, 2%)    scale(1.04); }
   66%  { transform: translate(-2%, 4%)   scale(1.02); }
   100% { transform: translate(-4%, -2%)  scale(1.05); }
+}
+
+main, footer {
+  position: relative;
+  z-index: 1;
 }
 
 /* =====================

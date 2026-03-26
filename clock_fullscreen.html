@@ -13,6 +13,7 @@
   <header class="top-bar">
     <a class="back-link" href="index.html">&#8592; Timer</a>
     <span class="page-title">World Clock</span>
+    <button class="fs-btn" id="fs_btn" aria-label="Toggle fullscreen" title="Toggle fullscreen">&#x26F6;</button>
   </header>
 
   <main>
@@ -107,5 +108,25 @@
   </footer>
 
   <script src="js/clock_fullscreen.js" defer></script>
+  <script>
+    const fsBtn = document.getElementById('fs_btn');
+    fsBtn.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+        fsBtn.textContent = '\u233D';
+        fsBtn.title = 'Exit fullscreen';
+      } else {
+        document.exitFullscreen();
+        fsBtn.textContent = '\u26F6';
+        fsBtn.title = 'Toggle fullscreen';
+      }
+    });
+    document.addEventListener('fullscreenchange', () => {
+      if (!document.fullscreenElement) {
+        fsBtn.textContent = '\u26F6';
+        fsBtn.title = 'Toggle fullscreen';
+      }
+    });
+  </script>
 </body>
 </html>
