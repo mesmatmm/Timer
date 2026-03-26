@@ -53,7 +53,7 @@
     cd_hours_e.textContent   = pad2(hours);
     cd_minutes_e.textContent = pad2(minutes);
     cd_seconds_e.textContent = pad2(seconds);
-    cd_ms_e.textContent      = pad3(dispMs);
+    cd_ms_e.textContent      = pad2(Math.floor(dispMs / 10));
   }
 
   function updateKeypadDisplay() {

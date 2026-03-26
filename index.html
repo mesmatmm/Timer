@@ -35,13 +35,23 @@
             <div id="sw_div" class="tab-panel active_div" role="tabpanel" aria-labelledby="sw_tab">
               <div class="stopwatch" aria-label="Stopwatch display">
                 <div class="sw_p1">
-                  <span class="timer-text" id="stopwatch_hours">00</span>
+                  <div class="time-unit">
+                    <span class="timer-text" id="stopwatch_hours">00</span>
+                    <span class="unit-label">hr</span>
+                  </div>
                   <span class="separator">:</span>
-                  <span class="timer-text" id="stopwatch_minutes">00</span>
+                  <div class="time-unit">
+                    <span class="timer-text" id="stopwatch_minutes">00</span>
+                    <span class="unit-label">min</span>
+                  </div>
                   <span class="separator">:</span>
-                  <span class="timer-text" id="stopwatch_seconds">00</span>
+                  <div class="time-unit">
+                    <div class="sec-ms">
+                      <span class="timer-text" id="stopwatch_seconds">00</span><span class="ms-comma">.<span id="stopwatch_milliseconds" aria-live="off">00</span></span>
+                    </div>
+                    <span class="unit-label">sec</span>
+                  </div>
                 </div>
-                <span id="stopwatch_milliseconds" aria-live="off">000</span>
               </div>
               <div class="sw-btns">
                 <button class="ctrl-btn start-btn" id="start_sw" aria-label="Start stopwatch">Start</button>
@@ -53,13 +63,23 @@
             <div id="cd_div" class="tab-panel" role="tabpanel" aria-labelledby="cd_tab" hidden>
               <div class="countdown" id="countdown_display" aria-label="Countdown display">
                 <div class="cd_p1">
-                  <span class="timer-text" id="cd_hours">00</span>
+                  <div class="time-unit">
+                    <span class="timer-text" id="cd_hours">00</span>
+                    <span class="unit-label">hr</span>
+                  </div>
                   <span class="separator">:</span>
-                  <span class="timer-text" id="cd_minutes">00</span>
+                  <div class="time-unit">
+                    <span class="timer-text" id="cd_minutes">00</span>
+                    <span class="unit-label">min</span>
+                  </div>
                   <span class="separator">:</span>
-                  <span class="timer-text" id="cd_seconds">00</span>
+                  <div class="time-unit">
+                    <div class="sec-ms">
+                      <span class="timer-text" id="cd_seconds">00</span><span class="ms-comma">.<span id="cd_milliseconds" aria-live="off">00</span></span>
+                    </div>
+                    <span class="unit-label">sec</span>
+                  </div>
                 </div>
-                <span id="cd_milliseconds" aria-live="off">000</span>
               </div>
               <div class="cd_keypad" role="group" aria-label="Countdown time entry keypad">
                 <span id="btn_5" class="cd_cell" role="button" tabindex="0" aria-label="5">5</span>
@@ -118,7 +138,7 @@
 
         <!-- Analog Clock -->
         <div class="subc subcontainer2">
-          <h2>Time Now</h2>
+          <h2><a href="clock_fullscreen.html">Time Now</a></h2>
           <div class="timer-el clock-el">
             <p class="big-text" id="current-time" aria-live="polite">--:--:--</p>
             <canvas id="canvas" width="200" height="200" aria-label="Analog clock"></canvas>

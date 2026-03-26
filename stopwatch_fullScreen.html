@@ -12,6 +12,7 @@
   <main>
     <header class="main__hero">
       <a class="site_name" href="index.html">&#8592; Timer</a>
+      <button class="fs-btn" id="fs_btn" aria-label="Toggle fullscreen" title="Toggle fullscreen">&#x26F6;</button>
     </header>
 
     <div class="subc subcontainer0">
@@ -28,13 +29,23 @@
       <div id="sw_div" class="active_div" role="tabpanel" aria-labelledby="sw_tab">
         <div class="stopwatch" aria-label="Stopwatch display">
           <div class="sw_p1">
-            <span class="timer-text" id="stopwatch_hours">00</span>
+            <div class="time-unit">
+              <span class="timer-text" id="stopwatch_hours">00</span>
+              <span class="unit-label">hr</span>
+            </div>
             <span class="separator">:</span>
-            <span class="timer-text" id="stopwatch_minutes">00</span>
+            <div class="time-unit">
+              <span class="timer-text" id="stopwatch_minutes">00</span>
+              <span class="unit-label">min</span>
+            </div>
             <span class="separator">:</span>
-            <span class="timer-text" id="stopwatch_seconds">00</span>
+            <div class="time-unit">
+              <div class="sec-ms">
+                <span class="timer-text" id="stopwatch_seconds">00</span><span class="ms-comma">.<span id="stopwatch_milliseconds">00</span></span>
+              </div>
+              <span class="unit-label">sec</span>
+            </div>
           </div>
-          <span id="stopwatch_milliseconds">000</span>
         </div>
         <div class="sw-btns">
           <button class="ctrl-btn start-btn" id="start_sw" aria-label="Start stopwatch">Start</button>
@@ -46,13 +57,23 @@
       <div id="cd_div" role="tabpanel" aria-labelledby="cd_tab" hidden>
         <div class="countdown" id="countdown_display" aria-label="Countdown display">
           <div class="cd_p1">
-            <span class="timer-text" id="cd_hours">00</span>
+            <div class="time-unit">
+              <span class="timer-text" id="cd_hours">00</span>
+              <span class="unit-label">hr</span>
+            </div>
             <span class="separator">:</span>
-            <span class="timer-text" id="cd_minutes">00</span>
+            <div class="time-unit">
+              <span class="timer-text" id="cd_minutes">00</span>
+              <span class="unit-label">min</span>
+            </div>
             <span class="separator">:</span>
-            <span class="timer-text" id="cd_seconds">00</span>
+            <div class="time-unit">
+              <div class="sec-ms">
+                <span class="timer-text" id="cd_seconds">00</span><span class="ms-comma">.<span id="cd_milliseconds">00</span></span>
+              </div>
+              <span class="unit-label">sec</span>
+            </div>
           </div>
-          <span id="cd_milliseconds">000</span>
         </div>
         <div class="cd_keypad" role="group" aria-label="Countdown time entry keypad">
           <span id="btn_5" class="cd_cell" role="button" tabindex="0">5</span>
@@ -88,5 +109,25 @@
   <script src="js/stopwatch.js" defer></script>
   <script src="js/countdown.js" defer></script>
   <script src="js/tabs.js" defer></script>
+  <script>
+    const fsBtn = document.getElementById('fs_btn');
+    fsBtn.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+        fsBtn.textContent = '\u233D'; // ⌽ exit icon
+        fsBtn.title = 'Exit fullscreen';
+      } else {
+        document.exitFullscreen();
+        fsBtn.textContent = '\u26F6'; // ⛶ enter icon
+        fsBtn.title = 'Toggle fullscreen';
+      }
+    });
+    document.addEventListener('fullscreenchange', () => {
+      if (!document.fullscreenElement) {
+        fsBtn.textContent = '\u26F6';
+        fsBtn.title = 'Toggle fullscreen';
+      }
+    });
+  </script>
 </body>
 </html>

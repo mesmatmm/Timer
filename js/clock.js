@@ -25,55 +25,10 @@
     drawTime();
   });
 
-  const ctx    = canvas.getContext('2d');
-  let radius   = canvas.height / 2;
+  const ctx = canvas.getContext('2d');
 
   function getRadius() {
     return (canvas.height / 2) * 0.90;
-  }
-
-  // =====================
-  // Static elements (drawn once, or on resize)
-  // =====================
-  function drawFace(r) {
-    // White circle
-    ctx.beginPath();
-    ctx.arc(0, 0, r, 0, 2 * Math.PI);
-    ctx.fillStyle = 'white';
-    ctx.fill();
-
-    // Gradient ring
-    const grad = ctx.createRadialGradient(0, 0, r * 0.95, 0, 0, r * 1.05);
-    grad.addColorStop(0,   '#333');
-    grad.addColorStop(0.5, 'white');
-    grad.addColorStop(1,   '#333');
-    ctx.strokeStyle = grad;
-    ctx.lineWidth   = r * 0.1;
-    ctx.stroke();
-
-    // Centre dot
-    ctx.beginPath();
-    ctx.arc(0, 0, r * 0.1, 0, 2 * Math.PI);
-    ctx.fillStyle = '#333';
-    ctx.fill();
-  }
-
-  function drawNumbers(r) {
-    ctx.font         = r * 0.15 + 'px arial';
-    ctx.textBaseline = 'middle';
-    ctx.textAlign    = 'center';
-    ctx.fillStyle    = '#333';
-
-    for (let num = 1; num <= 12; num++) {
-      const ang = num * Math.PI / 6;
-      ctx.rotate(ang);
-      ctx.translate(0, -r * 0.85);
-      ctx.rotate(-ang);
-      ctx.fillText(String(num), 0, 0);
-      ctx.rotate(ang);
-      ctx.translate(0, r * 0.85);
-      ctx.rotate(-ang);
-    }
   }
 
   // Draw the static clock face into an offscreen canvas for compositing
@@ -149,16 +104,17 @@
     const sec = now.getSeconds();
 
     // Clear and redraw static image
-    ctx.clearRect(-canvas.width, -canvas.height, canvas.width * 2, canvas.height * 2);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     if (staticImage) {
-      // Draw the cached static face without transform applied
-      ctx.save();
-      ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.drawImage(staticImage, 0, 0);
-      ctx.restore();
     }
 
+    // Translate to center for all hand drawing
+    ctx.save();
+    ctx.translate(canvas.width / 2, canvas.height / 2);
+
     // Hour hand
+    ctx.strokeStyle = '#333';
     const hourAngle = (hr * Math.PI / 6) + (min * Math.PI / 360) + (sec * Math.PI / 21600);
     drawHand(ctx, hourAngle, r * 0.5, r * 0.07);
 
@@ -167,16 +123,16 @@
     drawHand(ctx, minAngle, r * 0.8, r * 0.07);
 
     // Second hand
-    const secAngle = sec * Math.PI / 30;
     ctx.strokeStyle = 'red';
+    const secAngle = sec * Math.PI / 30;
     drawHand(ctx, secAngle, r * 0.9, r * 0.02);
-    ctx.strokeStyle = '#333'; // reset
+
+    ctx.restore();
   }
 
   // =====================
   // Init
   // =====================
-  ctx.translate(canvas.width / 2, canvas.height / 2);
   drawStatic();
   drawTime();
   setInterval(drawTime, 1000);

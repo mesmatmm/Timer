@@ -38,6 +38,26 @@ body {
   color: var(--color-orange);
 }
 
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 15% 25%, rgba(0, 157, 168, 0.22) 0%, transparent 45%),
+    radial-gradient(ellipse at 85% 75%, rgba(176, 0, 230, 0.18) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 50%, rgba(255, 140, 0, 0.10) 0%, transparent 55%);
+  animation: bg-drift 12s ease-in-out infinite alternate;
+}
+
+@keyframes bg-drift {
+  0%   { transform: translate(0, 0)      scale(1); }
+  33%  { transform: translate(3%, 2%)    scale(1.04); }
+  66%  { transform: translate(-2%, 4%)   scale(1.02); }
+  100% { transform: translate(-4%, -2%)  scale(1.05); }
+}
+
 /* =====================
    Header & Footer
    ===================== */
@@ -56,6 +76,19 @@ h2 {
   font-weight: normal;
   font-size: 2rem;
   margin-top: 1rem;
+}
+
+h2 a:link,
+h2 a:visited {
+  color: var(--color-orange);
+  text-decoration: none;
+  font-style: italic;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+h2 a:hover {
+  color: white;
+  text-shadow: 0 0 12px rgba(255, 140, 0, 0.7);
 }
 
 footer {
@@ -269,15 +302,60 @@ button:hover {
 .stopwatch,
 .countdown {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 5vmax;
   border: 5px solid black;
   border-radius: var(--border-radius-btn);
   background-color: var(--color-purple);
+  padding: 0.8vmax 1vmax;
   transition: background-color 0.4s ease;
+}
+
+.sw_p1,
+.cd_p1 {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.time-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.unit-label {
+  font-size: 1.2vmax;
+  color: white;
+  font-style: italic;
+  border-top: 1px solid rgba(255,255,255,0.5);
+  width: 100%;
+  text-align: center;
+  padding-top: 0.2em;
+  margin-top: 0.1em;
+}
+
+.sec-ms {
+  display: flex;
+  align-items: flex-end;
+}
+
+.ms-comma {
+  font-size: 2vmax;
+  color: white;
+  line-height: 1;
+  margin-bottom: 0.15em;
+  display: inline-flex;
+  align-items: flex-end;
+}
+
+#stopwatch_milliseconds,
+#cd_milliseconds {
+  display: inline-block;
+  width: 2.8vmax;
+  text-align: left;
 }
 
 .countdown.finished {
@@ -294,21 +372,20 @@ button:hover {
   font-size: 6vmax;
   font-weight: bold;
   line-height: 1;
-  margin: 1vmax 1vmax;
+  margin: 1vmax 0.3vmax;
   color: var(--color-yellow);
+  display: inline-block;
+  width: 9vmax;
+  text-align: center;
 }
 
 .separator {
   font-size: 5vmax;
   color: white;
+  align-self: flex-start;
+  line-height: 1.1;
 }
 
-#stopwatch_milliseconds,
-#cd_milliseconds {
-  font-size: 2vmax;
-  margin-left: 27vmax;
-  margin-top: -0.8vmax;
-}
 
 /* =====================
    Stopwatch / Countdown Buttons
@@ -480,10 +557,5 @@ button:hover {
 
   .timer-text {
     font-size: 10vw;
-  }
-
-  #stopwatch_milliseconds,
-  #cd_milliseconds {
-    margin-left: 35vw;
   }
 }

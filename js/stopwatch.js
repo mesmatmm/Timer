@@ -40,7 +40,7 @@
     sw_hours_e.textContent   = pad2(hours);
     sw_minutes_e.textContent = pad2(minutes);
     sw_seconds_e.textContent = pad2(seconds);
-    sw_ms_e.textContent      = pad3(ms);
+    sw_ms_e.textContent      = pad2(Math.floor(ms / 10));
   }
 
   function tick() {
